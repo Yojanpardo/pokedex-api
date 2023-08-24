@@ -7,6 +7,8 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'dev.yojanpardo'
 version = '1.0-SNAPSHOT'
+sourceCompatibility = '19'
+targetCompatibility = '19'
 
 repositories {
     mavenCentral()
@@ -37,8 +39,13 @@ dependencies {
     // spring security
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
-    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
-    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-gson
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-gson', version: '0.11.5'
+
 
     // https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
     implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.0.2'
@@ -52,3 +59,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+

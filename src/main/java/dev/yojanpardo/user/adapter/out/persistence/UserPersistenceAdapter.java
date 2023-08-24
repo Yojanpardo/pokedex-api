@@ -3,7 +3,6 @@ package dev.yojanpardo.user.adapter.out.persistence;
 import dev.yojanpardo.common.persistence.EntityMapper;
 import dev.yojanpardo.user.application.port.out.UserPort;
 import dev.yojanpardo.user.domain.User;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
@@ -27,7 +26,9 @@ public class UserPersistenceAdapter implements UserPort {
 
     @Override
     public User getUserByUsername(String username) {
-        return null;
+        var response = userJpaRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User [%s] not found".formatted(username)));
+        return mapper.entityToDomain(response);
     }
 
     @Override
