@@ -17,6 +17,8 @@ public class UserEntityMapper implements EntityMapper<User, UserEntity> {
                 .username(entityObject.getUsername())
                 .id(entityObject.getId())
                 .email(entityObject.getEmail())
+                .encodedPassword(entityObject.getEncodedPassword())
+                .role(entityObject.getRole())
                 .build();
     }
 
@@ -27,6 +29,7 @@ public class UserEntityMapper implements EntityMapper<User, UserEntity> {
                 .email(domainObject.getEmail())
                 .encodedPassword(passwordEncoder.encode(domainObject.getPassword()))
                 .username(domainObject.getUsername())
+                .role(domainObject.getRole())
                 .build();
     }
 }
